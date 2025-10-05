@@ -56,10 +56,8 @@ table {
 /* Fonts and colors */
 
 body {
-	font-family: Arial, sans-serif;
-	background-color: #f9fafb;
-	color: #333;
-	margin: 0;
+	font-family: 'Josefin Sans', serif;
+	color: rgba(0, 0, 0, 0.8);
 }
 h1, h2, h3, h4, h5, h6, header {
 	font-family: 'Yeseva One', sans-serif;
@@ -200,4 +198,3 @@ h6 {
   	float: none;
   }
 }
-
