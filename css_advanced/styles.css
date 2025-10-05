@@ -1,0 +1,66 @@
+      /* Define custom colors and font for the theme */
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
+        
+        /* Using a similar font to the images and defining the primary colors */
+        :root {
+            --dark-blue: #1d2a35;
+            --accent-purple: #9851a0;
+            --light-bg: #ffffff;
+            --dark-text: #222222;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+        }
+
+        /* Custom styles for the overlay and image positioning in the hero section */
+        #hero-section {
+            background-color: var(--dark-blue);
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(29, 42, 53, 0.4) 0%, /* Slightly transparent dark at top */
+                rgba(29, 42, 53, 1) 100%  /* Opaque dark at bottom */
+            );
+            z-index: 10;
+        }
+
+        /* Styling the purple button (Register for Free) */
+        .btn-purple {
+            background-color: var(--accent-purple);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px; /* rounded-full */
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-purple:hover {
+            background-color: #7c4185; /* Slightly darker purple on hover */
+        }
+
+        /* Star rating colors */
+        .star-filled {
+            color: var(--accent-purple); /* Purple color for filled stars */
+        }
+        .star-empty {
+            color: #d1d5db; /* Light gray for empty stars */
+        }
+        
