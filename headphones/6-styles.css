@@ -1,0 +1,228 @@
+/* 6-styles.css
+   Our results section with CSS pentagons
+   Keep selectors simple and generic, variables used for colors and spacing
+*/
+
+/* ---------- RESET ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,body { height: 100%; }
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.45;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- VARIABLES ---------- */
+:root{
+  --bg: #071226;           /* page background (dark navy) */
+  --card-bg: #0b1624;      /* dark section bg */
+  --muted: #9aa6b3;
+  --accent: #FF6565;       /* required link hover color also used for pentagon */
+  --accent-2: #ff8a7a;
+  --white: #ffffff;
+  --text: #e9f0f7;
+  --max-width: 1000px;
+  --gap: 28px;
+  --radius: 12px;
+  --pent-size: 120px;      /* base pentagon size */
+}
+
+/* ---------- GENERIC CONTAINERS ---------- */
+.container {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: linear-gradient(180deg, rgba(7,18,30,0.6), rgba(7,18,30,0.2));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.brand, .brand a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color .18s ease;
+}
+.main-nav a:hover,
+.main-nav a:active {
+  color: var(--accent); /* required link hover color */
+}
+
+/* ---------- CONTENT (filler) ---------- */
+.content {
+  background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.02) 100%);
+  padding: 48px 0;
+  color: var(--text);
+}
+.content h2 { margin-bottom: 8px; font-size: 1.25rem; }
+.muted { color: var(--muted); }
+
+/* ---------- RESULTS SECTION ---------- */
+.results {
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 64px 0;
+  /* decorative subtle overlay (no image) */
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.02), transparent 10%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.01), transparent 10%);
+}
+
+.results-inner {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.results-title {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.results-desc {
+  color: var(--muted);
+  max-width: 680px;
+  margin: 0 auto 30px auto;
+}
+
+/* Pentagon grid layout */
+.pentagon-grid {
+  display: flex;
+  gap: var(--gap);
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+/* Single pentagon wrapper */
+.pentagon {
+  width: var(--pent-size);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+/* The shape itself: drawn via clip-path polygon */
+.pentagon-shape {
+  width: 100%;
+  height: calc(var(--pent-size) * 0.9);
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  clip-path: polygon(
+    50% 0%,
+    92% 34%,
+    75% 100%,
+    25% 100%,
+    8% 34%
+  );
+  box-shadow: 0 10px 20px rgba(2,6,23,0.6), 0 2px 6px rgba(255,101,101,0.08) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .22s ease, box-shadow .22s ease;
+  border-radius: 6px; /* small rounding for nicer edge */
+}
+
+/* Label positioned visually overlapping the pentagon center */
+.pentagon-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: var(--white);
+  pointer-events: none;
+}
+
+.pentagon-label strong {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.pentagon-label .small {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+}
+
+/* Hover/focus effects (for keyboard accessibility keep hover subtle) */
+.pentagon:hover .pentagon-shape,
+.pentagon:focus-within .pentagon-shape {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 18px 36px rgba(2,6,23,0.7), 0 4px 14px rgba(255,101,101,0.12) inset;
+}
+
+/* Make shapes accessible by providing focusable inner button (if needed later)
+   but we keep markup simple for this task. */
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  padding: 22px 0;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+.footer-inner { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+
+/* ---------- RESPONSIVE: MOBILE breakpoint <= 480px ---------- */
+@media (max-width: 480px) {
+  .main-nav ul { display: none; } /* compact header on small screens */
+
+  .results {
+    padding: 40px 0;
+  }
+
+  .pentagon-grid {
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+  }
+
+  :root {
+    --pent-size: 100px; /* slightly smaller on mobile */
+  }
+}

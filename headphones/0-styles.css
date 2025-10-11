@@ -1,0 +1,133 @@
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  background-color: #071629; /* dark blue background */
+  line-height: 1.5;
+}
+
+/* ---------- VARIABLES ---------- */
+:root {
+  --primary-color: #FF6565;
+  --max-width: 1000px;
+  --text-light: #ffffff;
+  --text-muted: #b0b8c3;
+}
+
+/* ---------- GENERIC STYLES ---------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- HEADER ---------- */
+.header {
+  width: 100%;
+  background: transparent;
+  padding: 20px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* Navigation */
+.nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover,
+.nav a:active {
+  color: var(--primary-color);
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+  background: linear-gradient(rgba(7, 22, 41, 0.8), rgba(7, 22, 41, 0.8)),
+              url("images/hero-background.jpg") center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover,
+.btn:active {
+  opacity: 0.9;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 480px) {
+  .header-container {
+    flex-direction: column;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+}

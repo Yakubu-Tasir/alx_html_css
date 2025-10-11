@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Headphones — Our results (CSS pentagons)</title>
+  <link rel="stylesheet" href="6-styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="Headphones home">HEADPHONES</a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#what">What we do</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- filler section to mimic page flow -->
+    <section id="what" class="content container">
+      <h2>What we do...</h2>
+      <p class="muted">Short description about services. This is just placeholder content so the page has context.</p>
+    </section>
+
+    <!-- OUR RESULTS SECTION -->
+    <section id="results" class="results" aria-label="Our results speak for themselves">
+      <div class="container results-inner">
+        <h2 class="results-title">Our results speak for themselves</h2>
+        <p class="results-desc">We improved engagement and conversion for our partners. Here are some highlighted metrics.</p>
+
+        <div class="pentagon-grid" role="list" aria-label="Key performance metrics">
+          <div class="pentagon" role="listitem" aria-label="Plus two percent metric">
+            <div class="pentagon-shape" aria-hidden="true"></div>
+            <div class="pentagon-label">
+              <strong>+2%</strong>
+              <span class="small">Conversion</span>
+            </div>
+          </div>
+
+          <div class="pentagon" role="listitem" aria-label="Plus two percent metric">
+            <div class="pentagon-shape" aria-hidden="true"></div>
+            <div class="pentagon-label">
+              <strong>+2%</strong>
+              <span class="small">Engagement</span>
+            </div>
+          </div>
+
+          <div class="pentagon" role="listitem" aria-label="Plus two percent metric">
+            <div class="pentagon-shape" aria-hidden="true"></div>
+            <div class="pentagon-label">
+              <strong>+2%</strong>
+              <span class="small">Retention</span>
+            </div>
+          </div>
+
+          <div class="pentagon" role="listitem" aria-label="Plus two percent metric">
+            <div class="pentagon-shape" aria-hidden="true"></div>
+            <div class="pentagon-label">
+              <strong>+2%</strong>
+              <span class="small">Satisfaction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact & footer placeholder -->
+    <section id="contact" class="content container">
+      <h2>Contact</h2>
+      <p class="muted">Contact form goes here.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand">HEADPHONES</div>
+      <div class="copyright">© <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
